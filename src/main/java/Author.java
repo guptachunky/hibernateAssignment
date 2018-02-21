@@ -1,8 +1,10 @@
 import jdk.Exported;
+import org.hibernate.annotations.CollectionType;
 
 import javax.naming.Name;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "author")
 public class Author {
@@ -17,6 +19,17 @@ public class Author {
     private String lastName;
     @Column(name = ("Age"))
     private int age;
+    
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    private Address address;
+
 
     @Temporal(TemporalType.DATE)
     @Column(name = ("Date_Of_Birth"))
