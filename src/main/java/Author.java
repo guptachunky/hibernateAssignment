@@ -17,9 +17,35 @@ public class Author {
     @Column(name = ("Last_Name"))
     @Transient
     private String lastName;
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", Books=" + Books +
+                ", address=" + address +
+                ", dob=" + dob +
+                '}';
+    }
+
     @Column(name = ("Age"))
     private int age;
-    
+
+    public List<String> getBooks() {
+        return Books;
+    }
+
+    public void setBooks(List<String> books) {
+        Books = books;
+    }
+
+    @ElementCollection
+    List<String> Books;
+
+
     public Address getAddress() {
         return address;
     }
@@ -78,14 +104,4 @@ public class Author {
     }
 
 
-    @Override
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", dob=" + dob +
-                '}';
-    }
 }
