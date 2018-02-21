@@ -1,9 +1,7 @@
 import jdk.Exported;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 import java.util.IdentityHashMap;
 
 @Entity
@@ -14,6 +12,26 @@ public class Author {
     private String firstName;
     private String lastName;
     private int age;
+
+    @Temporal(TemporalType.DATE)
+    private Date dob;
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -44,9 +62,11 @@ public class Author {
     @Override
     public String toString() {
         return "Author{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
+                ", dob=" + dob +
                 '}';
     }
 }
