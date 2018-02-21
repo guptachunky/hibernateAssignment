@@ -13,6 +13,7 @@ public class Author {
     @Column(name = ("First_Name"))
     private String firstName;
     @Column(name = ("Last_Name"))
+    @Transient
     private String lastName;
     @Column(name = ("Age"))
     private int age;
