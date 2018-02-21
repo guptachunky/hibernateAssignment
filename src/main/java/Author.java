@@ -2,7 +2,6 @@ import jdk.Exported;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.IdentityHashMap;
 
 @Entity
 public class Author {
