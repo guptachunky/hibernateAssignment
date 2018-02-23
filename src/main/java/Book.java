@@ -1,4 +1,5 @@
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -9,15 +10,6 @@ public class Book {
 
     public void setBookId(int bookId) {
         this.bookId = bookId;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "bookId=" + bookId +
-                ", bookName='" + bookName + '\'' +
-                ", author=" + author +
-                '}';
     }
 
     public String getBookName() {
@@ -34,14 +26,31 @@ public class Book {
     private int bookId;
     private String bookName;
 
-    public Author getAuthor() {
+//    public Author getAuthor() {
+//        return author;
+//    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", author=" + author +
+                '}';
+    }
+//
+
+    public List<Author> getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(List<Author> author) {
         this.author = author;
     }
+//    public void setAuthor(Author author) {
+//        this.author = author;
+//    }
 
-    @ManyToOne
-    private Author author;
+    @ManyToMany(mappedBy = "book")
+    private List<Author> author;
 }

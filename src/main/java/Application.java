@@ -34,8 +34,9 @@ public class Application {
         books.add(book1);
         books.add(book);
         author1.setBook(books);
-        book.setAuthor(author1);
-        book1.setAuthor(author1);
+        List<Author> author=new ArrayList<>();
+        author.add(author1);
+        book.setAuthor(author);
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();

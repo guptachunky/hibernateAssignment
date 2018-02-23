@@ -27,7 +27,7 @@ public class Author {
     private int id;
 
 
-    @OneToMany
+    @ManyToMany
     private List<Book> book;
 
     public List<Book> getBook() {
