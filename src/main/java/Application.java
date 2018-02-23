@@ -31,7 +31,7 @@ public class Application {
         session.beginTransaction();
 
         session.save(author1);
-        session.save(address);
+//        session.save(address);
         session.getTransaction().commit();
 
     }

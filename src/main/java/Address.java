@@ -1,10 +1,11 @@
 import javax.persistence.*;
 
-@Entity
+//@Entity
+@Embeddable
 public class Address {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int AddressId;
     private int streetNumber;
 
