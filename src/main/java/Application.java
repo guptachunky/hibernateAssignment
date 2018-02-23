@@ -28,12 +28,19 @@ public class Application {
         author1.setBooks(bookList);
         Book book=new Book();
         book.setBookName("book1");
+        Book book1=new Book();
+        book1.setBookName("book1");
+        List<Book> books=new ArrayList<>();
+        books.add(book1);
+        books.add(book);
+        author1.setBook(books);
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
         session.save(author1);
         session.save(book);
+        session.save(book1);
         session.getTransaction().commit();
 
     }

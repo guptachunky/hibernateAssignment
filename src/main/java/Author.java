@@ -26,16 +26,25 @@ public class Author {
     @Id @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
 
-    public Book getBook() {
+
+    @OneToMany
+    private List<Book> book;
+
+    public List<Book> getBook() {
         return book;
     }
 
-    public void setBook(Book book) {
+    public void setBook(List<Book> book) {
         this.book = book;
     }
 
-    @OneToOne
-    private Book book;
+    public List<String> getBooks() {
+        return Books;
+    }
+
+    public void setBooks(List<String> books) {
+        Books = books;
+    }
 
     @Column(name = ("First_Name"))
     private String firstName;
@@ -46,13 +55,7 @@ public class Author {
     @Column(name = ("Age"))
     private int age;
 
-    public List<String> getBooks() {
-        return Books;
-    }
 
-    public void setBooks(List<String> books) {
-        Books = books;
-    }
 
     @ElementCollection
     List<String> Books;
