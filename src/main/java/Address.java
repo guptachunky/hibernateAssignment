@@ -1,22 +1,35 @@
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 
-@Embeddable
+@Entity
 public class Address {
 
-private int streetNumber;
-private String location;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int AddressId;
+    private int streetNumber;
 
-    public int getStreetNumber() {
-        return streetNumber;
+    public int getAddressId() {
+        return AddressId;
     }
 
     @Override
     public String toString() {
         return "Address{" +
-                "streetNumber=" + streetNumber +
+                "AddressId=" + AddressId +
+                ", streetNumber=" + streetNumber +
                 ", location='" + location + '\'' +
                 ", state='" + state + '\'' +
                 '}';
+    }
+
+    public void setAddressId(int addressId) {
+        AddressId = addressId;
+    }
+
+    private String location;
+
+    public int getStreetNumber() {
+        return streetNumber;
     }
 
     public void setStreetNumber(int streetNumber) {

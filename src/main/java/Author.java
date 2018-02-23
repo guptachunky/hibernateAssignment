@@ -54,6 +54,7 @@ public class Author {
         this.address = address;
     }
 
+    @OneToOne
     private Address address;
 
 
