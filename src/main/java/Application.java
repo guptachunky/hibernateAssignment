@@ -21,17 +21,19 @@ public class Application {
         author1.setDob(new Date());
         author1.setAddress(address);
 
-        List<String> book=new ArrayList<>();
-        book.add("book 1");
-        book.add("book 2");
-        book.add("book 3");
-        author1.setBooks(book);
+        List<String> bookList=new ArrayList<>();
+        bookList.add("book 1");
+        bookList.add("book 2");
+        bookList.add("book 3");
+        author1.setBooks(bookList);
+        Book book=new Book();
+        book.setBookName("book1");
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
         session.save(author1);
-//        session.save(address);
+        session.save(book);
         session.getTransaction().commit();
 
     }

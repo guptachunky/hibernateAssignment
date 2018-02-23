@@ -9,19 +9,11 @@ import java.util.List;
 @Entity(name = "author")
 public class Author {
 
-    @Id @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
-
-    @Column(name = ("First_Name"))
-    private String firstName;
-    @Column(name = ("Last_Name"))
-    @Transient
-    private String lastName;
-
     @Override
     public String toString() {
         return "Author{" +
                 "id=" + id +
+                ", book=" + book +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
@@ -30,6 +22,26 @@ public class Author {
                 ", dob=" + dob +
                 '}';
     }
+
+    @Id @GeneratedValue(strategy = GenerationType.TABLE)
+    private int id;
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    @OneToOne
+    private Book book;
+
+    @Column(name = ("First_Name"))
+    private String firstName;
+    @Column(name = ("Last_Name"))
+    @Transient
+    private String lastName;
 
     @Column(name = ("Age"))
     private int age;
@@ -53,8 +65,6 @@ public class Author {
     public void setAddress(Address address) {
         this.address = address;
     }
-
-//    @OneToOne
 
     private Address address;
 
